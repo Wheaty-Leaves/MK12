@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Ranger.h"
-#include "SubZero.h"
 #include "random.h"
+#include "SubZero.h"
 
 // CONSTRUCTOR
 SubZero::SubZero()
