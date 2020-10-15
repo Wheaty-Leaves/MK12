@@ -1,10 +1,13 @@
 #include "AllPlayerClasses.h"
 #include "selectFunctions.h"
+#include "clear_screen.h"
 #include <iostream>
 #include <string>
 
 int main(void)
 {
+    clear_screen();
+    
     // CHARACTER SELECTION
     #ifndef NOIU_H
         std::cout << "Player 1" << std::endl;
@@ -26,6 +29,8 @@ int main(void)
     std::string* status1p = &status1; 
     std::string* status2p = &status2;
 
+    clear_screen();
+
     while (Player1->get_health() != 0 && Player2->get_health() != 0) // SELECT ATTACK
     {
         
@@ -37,9 +42,7 @@ int main(void)
             Player2->change_abilityPoints(-APCost1);
             Player1->change_health(-damage1);
             
-            #ifndef NOUI_H
-                std::cout << &fflush; // clears console
-            #endif
+            clear_screen();
 
             if (Player2->get_health() != 0) // CHECKING HEALTH, SKIP IF WINNER IS FOUND
             {
@@ -48,9 +51,7 @@ int main(void)
                 Player2->change_abilityPoints(-APCost2);
                 Player1->change_health(-damage2);
 
-                #ifndef NOUI_H
-                    std::cout << &fflush; // clears console
-                #endif
+                clear_screen();
 
             }
         }
@@ -61,9 +62,7 @@ int main(void)
             Player2->change_abilityPoints(-APCost2);
             Player1->change_health(-damage2);
 
-            #ifndef NOUI_H
-                std::cout << &fflush; // clears console
-            #endif
+            clear_screen();
 
             if (Player1->get_health() != 0) // CHECKING HEALTH, SKIP IF WINNER IS FOUND
             {
@@ -72,9 +71,7 @@ int main(void)
                 Player2->change_abilityPoints(-APCost1);
                 Player1->change_health(-damage1);
 
-                #ifndef NOUI_H
-                    std::cout << &fflush; // clears console
-                #endif
+                clear_screen();
             }    
         }
     }

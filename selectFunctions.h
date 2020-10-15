@@ -2,6 +2,7 @@
 #define SELECTFUNCTIONS_H
 
 #include "AllPlayerClasses.h"
+#include "clear_screen.h"
 #include <iostream>
 
 Player* select_character()
@@ -46,10 +47,14 @@ Player* select_character()
         }
     }
 
+    clear_screen();
+
     #ifndef NOUI_H
         std::cout << "Enter your name: ";
         std::cin >> Player->name;
     #endif
+
+    clear_screen();
 
     return Player;
 }
