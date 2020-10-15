@@ -47,64 +47,74 @@ Player* select_character()
         }
     }
 
-    clear_screen();
-
     #ifndef NOUI_H
         std::cout << "Enter your name: ";
         std::cin >> Player->name;
     #endif
-
-    clear_screen();
 
     return Player;
 }
 
 
 void select_attack(Player* Player, int* damage, int* APCost, std::string* status)
-{  
-    
-#ifndef NOUI_H // USER INTERFACE
-    std::cout << "Select your attack ";
-    std::cout << Player->get_name() << std::endl;
-    std::cout << "1. " << Player->get_attackBasic() << std::endl;
-    std::cout << "2. " << Player->get_attackClass() << std::endl;
-    std::cout << "3. " << Player->get_attackCharacter1() << std::endl;
-    std::cout << "4. " << Player->get_attackCharacter2() << std::endl;
-#endif
+{
+    *(APCost) = 100; // Causes the first loop of the AP Checker
+    while (*(APCost) > Player->get_abilityPoints()) // Checks if player has sufficient AP
+    {   
+        
+    #ifndef NOUI_H // USER INTERFACE
+        std::cout << "Select your attack ";
+        std::cout << Player->get_name() << std::endl;
+        std::cout << "1. " << Player->get_attackBasic() << std::endl;
+        std::cout << "2. " << Player->get_attackClass() << std::endl;
+        std::cout << "3. " << Player->get_attackCharacter1() << std::endl;
+        std::cout << "4. " << Player->get_attackCharacter2() << std::endl;
+    #endif
 
-    // ACTUAL FUNCTION - Requires protection from false inputs
-    int attackNumber;
-    std::cin >> attackNumber;
+        // ACTUAL FUNCTION - Requires protection from false inputs
+        int attackNumber;
+        std::cin >> attackNumber;
 
-    std::string* attack;
-    int repeat = 1;
-    while(repeat == 1)
-    {
-        repeat = 0;
-        switch (attackNumber)
+        std::string* attack;
+        int repeat = 1;
+        while(repeat == 1)
         {
-        case 1:
-            attack = Player->attack_basic();
-            break;
-        case 2:
-            attack = Player->attack_class();
-            break;
-        case 3:
-            attack = Player->attack_character1();
-            break;
-        case 4:
-            attack = Player->attack_character2();
-            break;
-        default:
-            repeat = 1;
-            break;
+            repeat = 0;
+            switch (attackNumber)
+            {
+            case 1:
+                attack = Player->attack_basic();
+                break;
+            case 2:
+                attack = Player->attack_class();
+                break;
+            case 3:
+                attack = Player->attack_character1();
+                break;
+            case 4:
+                attack = Player->attack_character2();
+                break;
+            default:
+                repeat = 1;
+                break;
+            }
+        }
+        // TAKES ATTACK INFORMATION AND PASSES IT TO MAIN FILE
+        *(APCost) = std::stoi(*(attack + 0));
+        *(damage) = std::stoi(*(attack + 1));
+        *(status) = *(attack + 2);
+
+        clear_screen();
+
+        if (*(APCost) > Player->get_abilityPoints())
+        {
+            #ifndef NOUI_H
+                std::cout << "Insufficient AP" << std::endl;
+            #endif
         }
     }
-     
-    // TAKES ATTACK INFORMATION AND PASSES IT TO MAIN FILE
-    *(APCost) = std::stoi(*(attack + 0));
-    *(damage) = std::stoi(*(attack + 1));
-    *(status) = *(attack + 2);
+
+
 }
 
 #endif

@@ -33,7 +33,7 @@ std::string* Belmont::attack_character2()
     std::string* attack = new std::string[3];
 	
 	// AP COST
-	*(attack + 0) = std::to_string(0);
+	*(attack + 0) = std::to_string(10);
 
 	// TOTAL DAMAGE
 	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage

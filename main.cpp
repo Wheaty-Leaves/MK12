@@ -7,16 +7,18 @@
 int main(void)
 {
     clear_screen();
-    
+
     // CHARACTER SELECTION
     #ifndef NOIU_H
         std::cout << "Player 1" << std::endl;
     #endif
     Player* Player1 = select_character();
+    clear_screen();
     #ifndef NOIU_H
         std::cout << "Player 2" << std::endl;
     #endif
     Player* Player2 = select_character();
+    clear_screen();
 
     // STORES ALL ATTACK INORMATION
     int damage1, damage2, APCost1, APCost2;
@@ -29,8 +31,6 @@ int main(void)
     std::string* status1p = &status1; 
     std::string* status2p = &status2;
 
-    clear_screen();
-
     while (Player1->get_health() != 0 && Player2->get_health() != 0) // SELECT ATTACK
     {
         
@@ -42,7 +42,6 @@ int main(void)
             Player2->change_abilityPoints(-APCost1);
             Player1->change_health(-damage1);
             
-            clear_screen();
 
             if (Player2->get_health() != 0) // CHECKING HEALTH, SKIP IF WINNER IS FOUND
             {
@@ -51,7 +50,6 @@ int main(void)
                 Player2->change_abilityPoints(-APCost2);
                 Player1->change_health(-damage2);
 
-                clear_screen();
 
             }
         }
@@ -62,7 +60,6 @@ int main(void)
             Player2->change_abilityPoints(-APCost2);
             Player1->change_health(-damage2);
 
-            clear_screen();
 
             if (Player1->get_health() != 0) // CHECKING HEALTH, SKIP IF WINNER IS FOUND
             {
@@ -71,7 +68,6 @@ int main(void)
                 Player2->change_abilityPoints(-APCost1);
                 Player1->change_health(-damage1);
 
-                clear_screen();
             }    
         }
     }
