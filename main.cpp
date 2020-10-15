@@ -6,7 +6,13 @@
 int main(void)
 {
     // CHARACTER SELECTION
+    #ifndef NOIU_H
+        std::cout << "Player 1" << std::endl;
+    #endif
     Player* Player1 = select_character();
+    #ifndef NOIU_H
+        std::cout << "Player 2" << std::endl;
+    #endif
     Player* Player2 = select_character();
 
     // STORES ALL ATTACK INORMATION

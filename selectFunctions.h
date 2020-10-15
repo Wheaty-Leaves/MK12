@@ -45,6 +45,12 @@ Player* select_character()
             break;
         }
     }
+
+    #ifndef NOUI_H
+        std::cout << "Enter your name: ";
+        std::cin >> Player->name;
+    #endif
+
     return Player;
 }
 
@@ -55,9 +61,9 @@ void select_attack(Player* Player, int* damage, int* APCost, std::string* status
 #ifndef NOUI_H // USER INTERFACE
     std::cout << "Select your attack ";
     std::cout << Player->get_name() << std::endl;
-    std::cout << "1. " << Player->get_attackBasic() << '\t';
+    std::cout << "1. " << Player->get_attackBasic() << std::endl;
     std::cout << "2. " << Player->get_attackClass() << std::endl;
-    std::cout << "3. " << Player->get_attackCharacter1() << '\t';
+    std::cout << "3. " << Player->get_attackCharacter1() << std::endl;
     std::cout << "4. " << Player->get_attackCharacter2() << std::endl;
 #endif
 

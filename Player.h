@@ -16,7 +16,9 @@ public:
 	// ATTRIBUTES
 protected:
 	std::string classType; //The class name but class cannot be used as a variable name
+public:
 	std::string name;
+protected:
 	int health;
 	int abilityPoints;
 	int abilityPointsGain;
