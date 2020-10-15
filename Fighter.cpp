@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "Fighter.h"
-#include "random.h"
 #include <string>
 
 // CONSTRUCTOR
@@ -18,12 +17,12 @@ Fighter::Fighter()
 std::string* Fighter::attack_class() // place holder
 {
 	std::string* attack = new std::string[3];
-	
 	// AP COST
-	*(attack + 0) = std::to_string(0);
+	*(attack + 0) = std::to_string(3);
 
 	// TOTAL DAMAGE
-	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage
+	int damage = (rand() % 10) + 10; // calculates damage
+	*(attack + 1) = std::to_string(damage);
 
 	// STATUS EFFECT
 	*(attack + 2) = "none"; // sets status effect to none

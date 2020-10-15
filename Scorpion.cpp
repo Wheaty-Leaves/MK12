@@ -1,5 +1,4 @@
 #include "Scorpion.h"
-#include "random.h"
 
 // CONSTRUCTOR
 Scorpion::Scorpion()
@@ -13,32 +12,32 @@ Scorpion::Scorpion()
 
 std::string* Scorpion::attack_character1()
 {
-	std::string* attack = new std::string[3];
-	
-	// AP COST
-	*(attack + 0) = std::to_string(0);
+    std::string* attack = new std::string[3];
+    // AP COST
+    *(attack + 0) = std::to_string(3);
 
-	// TOTAL DAMAGE
-	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage
+    // TOTAL DAMAGE
+    int damage = 5; //WIP
+    *(attack + 1) = std::to_string(damage);
 
-	// STATUS EFFECT
-	*(attack + 2) = "none"; // sets status effect to none
+    // STATUS EFFECT
+    *(attack + 2) = "none";
 
-	return attack;
+    return attack;
 }
 
 std::string* Scorpion::attack_character2()
 {
-	std::string* attack = new std::string[3];
-	
-	// AP COST
-	*(attack + 0) = std::to_string(0);
+    std::string* attack = new std::string[3];
+    // AP COST
+    *(attack + 0) = std::to_string(3);
 
-	// TOTAL DAMAGE
-	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage
+    // TOTAL DAMAGE
+    int damage = 5; //WIP
+    *(attack + 1) = std::to_string(damage);
 
-	// STATUS EFFECT
-	*(attack + 2) = "none"; // sets status effect to none
+    // STATUS EFFECT
+    *(attack + 2) = "none";
 
-	return attack;
+    return attack;
 }

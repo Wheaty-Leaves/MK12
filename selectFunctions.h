@@ -11,9 +11,11 @@ Player* select_character()
 
     std::cout << "1. Belmont" << '\t';
     std::cout << "2. Scorpion" << '\t';
-    std::cout << std::endl;
     std::cout << "3. JohnWick" << '\t';
+    std::cout << std::endl;
     std::cout << "4. SubZero" << '\t';
+    std::cout << "5. Shaggy" << '\t';
+    std::cout << "6. Saitama" << '\t';
     std::cout << std::endl;
 
 #endif

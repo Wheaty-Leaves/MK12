@@ -1,5 +1,4 @@
 #include "JohnWick.h"
-#include "random.h"
 
 // CONSTRUCTOR
 JohnWick::JohnWick()
@@ -15,32 +14,32 @@ JohnWick::JohnWick()
 // ATTACK FUNCTIONS
 std::string* JohnWick::attack_character1()
 {
-	std::string* attack = new std::string[3];
-	
-	// AP COST
-	*(attack + 0) = std::to_string(0);
+    std::string* attack = new std::string[3];
+    // AP COST
+    *(attack + 0) = std::to_string(3);
 
-	// TOTAL DAMAGE
-	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage
+    // TOTAL DAMAGE
+    int damage = 5; // WORK IN PROGRESS
+    *(attack + 1) = std::to_string(damage);
 
-	// STATUS EFFECT
-	*(attack + 2) = "none"; // sets status effect to none
+    // STATUS EFFECT
+    *(attack + 2) = "none";
 
-	return attack;
+    return attack;
 }
 
 std::string* JohnWick::attack_character2()
 {
-	std::string* attack = new std::string[3];
-	
-	// AP COST
-	*(attack + 0) = std::to_string(0);
+    std::string* attack = new std::string[3];
+    // AP COST
+    *(attack + 0) = std::to_string(3);
 
-	// TOTAL DAMAGE
-	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage
+    // TOTAL DAMAGE
+    int damage = 5; // WORK IN PROGRESS
+    *(attack + 1) = std::to_string(damage);
 
-	// STATUS EFFECT
-	*(attack + 2) = "none"; // sets status effect to none
+    // STATUS EFFECT
+    *(attack + 2) = "none";
 
-	return attack;
+    return attack;
 }
