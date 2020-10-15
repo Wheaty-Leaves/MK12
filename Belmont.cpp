@@ -1,4 +1,5 @@
 #include "Belmont.h"
+#include "random.h"
 
 // CONSTRUCTOR
 Belmont::Belmont()
@@ -14,32 +15,32 @@ Belmont::Belmont()
 std::string* Belmont::attack_character1()
 {
     std::string* attack = new std::string[3];
-    // AP COST
-    *(attack + 0) = std::to_string(3);
+	
+	// AP COST
+	*(attack + 0) = std::to_string(0);
 
-    // TOTAL DAMAGE
-    int damage = 5; // WORK IN PROGRESS
-    *(attack + 1) = std::to_string(damage);
+	// TOTAL DAMAGE
+	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage
 
-    // STATUS EFFECT
-    *(attack + 2) = "none";
+	// STATUS EFFECT
+	*(attack + 2) = "none"; // sets status effect to none
 
-    return attack;
+	return attack;
 }
 
 std::string* Belmont::attack_character2()
 {
     std::string* attack = new std::string[3];
-    // AP COST
-    *(attack + 0) = std::to_string(3);
+	
+	// AP COST
+	*(attack + 0) = std::to_string(0);
 
-    // TOTAL DAMAGE
-    int damage = 5; // WORK IN PROGRESS
-    *(attack + 1) = std::to_string(damage);
+	// TOTAL DAMAGE
+	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage
 
-    // STATUS EFFECT
-    *(attack + 2) = "none";
+	// STATUS EFFECT
+	*(attack + 2) = "none"; // sets status effect to none
 
-    return attack;
+	return attack;
 }
 
