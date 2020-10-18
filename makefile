@@ -11,8 +11,9 @@ main: Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp Su
 clean: 
 	rm -f game *.o
 
+#compile to test the the attack functions of all classes
 classTesting: Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp classTesting.cpp
-	g++ -std=c++11 Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp classTesting.cpp -o test
+	g++ -std=c++11 Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp classTesting.cpp -DNOUI_H -DNORANDOM_H -o test
 
 test:
-	./classTesting < classTestingInput.txt
+	./test < classTestingInput1.txt | diff - classTestingExpected1.txt

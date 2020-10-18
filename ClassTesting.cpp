@@ -1,7 +1,5 @@
 #include "selectFunctions.h"
 #include "AllPlayerClasses.h"
-#define NOUI_H
-#define NORANDOM_H
 
 int main()
 {
