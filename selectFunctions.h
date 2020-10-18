@@ -63,8 +63,9 @@ void select_attack(Player* Player, int* damage, int* APCost, std::string* status
     {   
         
     #ifndef NOUI_H // USER INTERFACE
-        std::cout << "Select your attack ";
-        std::cout << Player->get_name() << std::endl;
+        std::cout << Player->get_name() << " has " << Player->get_health() << " HP & "; 
+        std::cout << Player->get_abilityPoints() << " AP" << std::endl;
+        std::cout << "Select your attack " << std::endl;
         std::cout << "1. " << Player->get_attackBasic() << std::endl;
         std::cout << "2. " << Player->get_attackClass() << std::endl;
         std::cout << "3. " << Player->get_attackCharacter1() << std::endl;
@@ -99,6 +100,7 @@ void select_attack(Player* Player, int* damage, int* APCost, std::string* status
                 break;
             }
         }
+        
         // TAKES ATTACK INFORMATION AND PASSES IT TO MAIN FILE
         *(APCost) = std::stoi(*(attack + 0));
         *(damage) = std::stoi(*(attack + 1));
@@ -108,13 +110,11 @@ void select_attack(Player* Player, int* damage, int* APCost, std::string* status
 
         if (*(APCost) > Player->get_abilityPoints())
         {
-            #ifndef NOUI_H
-                std::cout << "Insufficient AP" << std::endl;
-            #endif
+        #ifndef NOUI_H
+            std::cout << "Insufficient AP" << std::endl;
+        #endif
         }
     }
-
-
 }
 
 #endif

@@ -105,16 +105,20 @@ void Player::change_weakness(std::string newWeakness) //changes players weakness
 // ATTACK FUNCTIONS
 std::string* Player::attack_basic() //Basic attack function uses no ap & applies no status effect
 {	
-	std::string* attack = new std::string[3];
+    std::string* attack = new std::string[3];
 	
 	// AP COST
-	*(attack + 0) = std::to_string(0);
+	int APCost = 0;
+	*(attack + 0) = std::to_string(APCost);
 
 	// TOTAL DAMAGE
-	*(attack + 1) = std::to_string(generate_randomNumber(1, 10)); // calculates damage
+	int damageMin = 1;
+	int damageMax = 10;
+	*(attack + 1) = std::to_string(generate_randomNumber(damageMin, damageMax)); // calculates damage
 
 	// STATUS EFFECT
-	*(attack + 2) = "none"; // sets status effect to none
+	std::string status = "none";
+	*(attack + 2) = status; // sets status effect to none
 
 	return attack;
 }
