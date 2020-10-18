@@ -7,25 +7,25 @@
 
 Player* select_character()
 {
-#ifndef NOUI_H
-    std::cout << "Select your fighter!" << std::endl;
-
-    std::cout << "1. Belmont" << '\t';
-    std::cout << "2. Scorpion" << '\t';
-    std::cout << std::endl;
-    std::cout << "3. JohnWick" << '\t';
-    std::cout << "4. SubZero" << '\t';
-    std::cout << std::endl;
-
-#endif
-    int characterNumber;
-    std::cin >> characterNumber;
-
     Player* Player;
-    
     int repeat = 1;
+    int characterNumber = -1;
     while(repeat == 1)
     {
+    
+        #ifndef NOUI_H
+            std::cout << "Select your fighter!" << std::endl;
+
+            std::cout << "1. Belmont" << '\t';
+            std::cout << "2. Scorpion" << '\t';
+            std::cout << std::endl;
+            std::cout << "3. JohnWick" << '\t';
+            std::cout << "4. SubZero" << '\t';
+            std::cout << std::endl;
+        #endif
+
+        characterNumber = get_integer();
+    
         repeat = 0;
         switch (characterNumber)
         {
@@ -43,43 +43,45 @@ Player* select_character()
             break;
         default:
             repeat = 1;
+            #ifndef NOUI_H
+                std::cout << "Not a valid number, please reenter" << std::endl;
+                clear_screen();
+            #endif
             break;
         }
     }
 
     #ifndef NOUI_H
         std::cout << "Enter your name: ";
-        std::cin >> Player->name;
     #endif
+    std::cin >> Player->name;
 
     return Player;
 }
 
-
 void select_attack(Player* Player, int* damage, int* APCost, std::string* status)
 {
+    int attackNumber; 
+    int repeat = 1;
+    std::string* attack;
+
     *(APCost) = 100; // Causes the first loop of the AP Checker
     while (*(APCost) > Player->get_abilityPoints()) // Checks if player has sufficient AP
     {   
-        
-    #ifndef NOUI_H // USER INTERFACE
-        std::cout << Player->get_name() << " has " << Player->get_health() << " HP & "; 
-        std::cout << Player->get_abilityPoints() << " AP" << std::endl;
-        std::cout << "Select your attack " << std::endl;
-        std::cout << "1. " << Player->get_attackBasic() << std::endl;
-        std::cout << "2. " << Player->get_attackClass() << std::endl;
-        std::cout << "3. " << Player->get_attackCharacter1() << std::endl;
-        std::cout << "4. " << Player->get_attackCharacter2() << std::endl;
-    #endif
-
-        // ACTUAL FUNCTION - Requires protection from false inputs
-        int attackNumber;
-        std::cin >> attackNumber;
-
-        std::string* attack;
-        int repeat = 1;
         while(repeat == 1)
         {
+            #ifndef NOUI_H // USER INTERFACE
+                std::cout << Player->get_name() << " has " << Player->get_health() << " HP & "; 
+                std::cout << Player->get_abilityPoints() << " AP" << std::endl;
+                std::cout << "Select your attack " << std::endl;
+                std::cout << "1. " << Player->get_attackBasic() << std::endl;
+                std::cout << "2. " << Player->get_attackClass() << std::endl;
+                std::cout << "3. " << Player->get_attackCharacter1() << std::endl;
+                std::cout << "4. " << Player->get_attackCharacter2() << std::endl;
+            #endif
+
+            attackNumber = get_integer();
+
             repeat = 0;
             switch (attackNumber)
             {
