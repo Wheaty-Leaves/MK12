@@ -7,6 +7,9 @@ classes: Player.cpp Fighter.cpp Belmont.cpp
 main: Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp main.cpp
 	g++ -std=c++11 Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp main.cpp -o game
 
+run:
+	./game
+
 #compile test main with no random or user interface
 clean: 
 	rm -f game *.o
