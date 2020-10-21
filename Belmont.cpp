@@ -17,12 +17,12 @@ std::string* Belmont::attack_character1()
     std::string* attack = new std::string[3];
 	
 	// AP COST
-	int APCost = 10;
+	int APCost = -8;
 	*(attack + 0) = std::to_string(APCost);
 
 	// TOTAL DAMAGE
-	int damageMin = 1;
-	int damageMax = 10;
+	int damageMin = -20;
+	int damageMax = -10;
 	*(attack + 1) = std::to_string(generate_randomNumber(damageMin, damageMax)); // calculates damage
 
 	// STATUS EFFECT
@@ -37,12 +37,12 @@ std::string* Belmont::attack_character2()
     std::string* attack = new std::string[3];
 	
 	// AP COST
-	int APCost = 10;
+	int APCost = 9;
 	*(attack + 0) = std::to_string(APCost);
 
 	// TOTAL DAMAGE
-	int damageMin = 1;
-	int damageMax = 10;
+	int damageMin = 30;
+	int damageMax = 40;
 	*(attack + 1) = std::to_string(generate_randomNumber(damageMin, damageMax)); // calculates damage
 
 	// STATUS EFFECT
