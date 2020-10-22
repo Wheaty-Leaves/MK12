@@ -115,6 +115,7 @@ void select_attack(Player* Player, int* damage, int* APCost, std::string* status
         #ifndef NOUI_H
             std::cout << "Insufficient AP" << std::endl;
         #endif
+        repeat = 1;
         }
     }
 }
