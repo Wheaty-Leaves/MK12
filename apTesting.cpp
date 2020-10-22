@@ -8,7 +8,9 @@ int main()
     //int lower;
 
 	// prompt for user input
+	#ifndef NOUI_H
 	std::cout << "Enter health adjustment: \n" ;
+	#endif
 	std::cin >> abilityPointsAdjustment;
 
 	// code from the player.cpp file
@@ -20,13 +22,14 @@ int main()
 
 	if (abilityPointsAdjustment < 0)
 	{
+		#ifndef NOUI_H
 	    std::cout << "Bad input, try again ";
+		#endif
 	    std::cin >> abilityPointsAdjustment;
 	} else {
 
 	// tell the user what was entered and the sum
-	std::cout << "abilityPointsAdjustment = " << abilityPointsAdjustment << std::endl;
-	std::cout << "abilityPoints + abilityPointsAdjustment = " << abilityPoints << std::endl ;
+	std::cout << abilityPoints;
     }
 
 	// normal finish - exit with 0

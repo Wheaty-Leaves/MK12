@@ -7,7 +7,9 @@ int main()
     int health = 100;
 
 	// prompt for user input
+	#ifndef NOUI_H
 	std::cout << "Enter health adjustment: \n" ;
+	#endif
 	std::cin >> healthAdjustment;
 
 	// code from player.cpp file
@@ -19,13 +21,14 @@ int main()
 	
 		if (healthAdjustment < 0)
 	{
+		#ifndef NOUI_H
 	    std::cout << "Bad input, try again ";
+		#endif
 	    std::cin >> healthAdjustment;
 	} else {
 
 	// tell the user what was entered and the sum
-	std::cout << "healthAdjustment = " << healthAdjustment << std::endl;
-	std::cout << "health + healthAdjustment = " << health << std::endl ;
+	std::cout << health;
 	
 	}
 	// normal finish - exit with 0

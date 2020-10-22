@@ -15,10 +15,10 @@ clean:
 	rm -f game *.o
 	rm -f game *.exe
 
-tests: classTesting mainTesting test1 test2
+tests: classAttackTesting mainTesting classFunctionTesting classHealthTesting test1 test2 test3 test4
 
 #compile to test the the attack functions of all classes
-classTesting: Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp classTesting.cpp
+classAttackTesting: Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp classTesting.cpp
 	g++ -std=c++11 Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp classTesting.cpp -DNOUI_H -DNORANDOM_H -o test
 
 test1: # testing attack functions ./test
@@ -41,3 +41,15 @@ mainTesting: Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick
 test2: # testing main file ./game
 	./game1 < mainTestingInput1.txt | diff - mainTestingOutput1.txt # testing player 1 victory
 	./game1 < mainTestingInput2.txt | diff - mainTestingOutput2.txt # testing player 2 victory
+
+classFunctionTesting: Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp healthTesting.cpp
+	g++ -std=c++11 Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp healthTesting.cpp -DNOUI_H -DNORANDOM_H -o game2
+
+test3:
+	./game2 < classTestingInput13.txt | diff - classTestingExpected13.txt # player heath
+
+classHealthTesting: Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp apTesting.cpp
+	g++ -std=c++11 Player.cpp Fighter.cpp Belmont.cpp Scorpion.cpp Ranger.cpp JohnWick.cpp SubZero.cpp apTesting.cpp -DNOUI_H -DNORANDOM_H -o game3
+
+test4:
+	./game3 < classTestingInput14.txt | diff - classTestingExpected14.txt # player AP
