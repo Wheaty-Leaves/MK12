@@ -21,12 +21,12 @@ int main(void)
     clear_screen();
 
     // CHARACTER SELECTION
-    #ifndef NOIU_H
+    #ifndef NOUI_H
         std::cout << "Player 1" << std::endl;
     #endif
     Player* Player1 = select_character();
     clear_screen();
-    #ifndef NOIU_H
+    #ifndef NOUI_H
         std::cout << "Player 2" << std::endl;
     #endif
     Player* Player2 = select_character();
@@ -72,13 +72,22 @@ int main(void)
     }
 
     #ifndef NOUI_H // USER WIN MESSAGE
-    if (Player1->get_health() > 0 && Player2->get_health() > 0)
+    if (Player1->get_health() > 0)
     {
         std::cout << Player1->get_name() << " Wins!" << std::endl;
     }
     else
     {
         std::cout << Player2->get_name() << " Wins!" << std::endl;
+    }
+    #else
+    if (Player1->get_health() > 0)
+    {
+        std::cout << "1" << std::endl;
+    }
+    else
+    {
+        std::cout << "2" << std::endl;
     }
     #endif
 
